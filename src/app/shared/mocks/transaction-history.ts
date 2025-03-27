@@ -1,0 +1,58 @@
+export const transactionHistoryMock = [
+  {
+    assetName: 'Reliance Industries',
+    assetDetails: { name: 'Reliance Industries', ticker: 'RIL', sector: 'Energy', cmp: 2500 },
+    quantity: 10,
+    purchasePrice: 2200,
+    purchaseDate: '2024-01-10',
+  },
+  {
+    assetName: 'TCS',
+    assetDetails: { name: 'TCS', ticker: 'TCS', sector: 'Technology', cmp: 3600 },
+    quantity: 5,
+    purchasePrice: 3300,
+    purchaseDate: '2024-02-15',
+  },
+  {
+    assetName: 'HDFC Bank',
+    assetDetails: { name: 'HDFC Bank', ticker: 'HDFCBANK', sector: 'Finance', cmp: 1500 },
+    quantity: 8,
+    purchasePrice: 1400,
+    purchaseDate: '2023-12-20',
+  },
+  {
+    assetName: 'Infosys',
+    assetDetails: { name: 'Infosys', ticker: 'INFY', sector: 'Technology', cmp: 1800 },
+    quantity: 10,
+    purchasePrice: 1700,
+    purchaseDate: '2023-11-10',
+  },
+  {
+    assetName: 'Infosys',
+    assetDetails: { name: 'Infosys', ticker: 'INFY', sector: 'Technology', cmp: 1800 },
+    quantity: 5,
+    purchasePrice: 1900,
+    purchaseDate: '2024-01-05',
+  },
+  {
+    assetName: 'ITC',
+    assetDetails: { name: 'ITC', ticker: 'ITC', sector: 'FMCG', cmp: 450 },
+    quantity: 1,
+    purchasePrice: 400,
+    purchaseDate: '2024-03-01',
+  },
+  {
+    assetName: 'Infosys',
+    assetDetails: { name: 'Infosys', ticker: 'INFY', sector: 'Technology', cmp: 1800 },
+    quantity: 5,
+    purchasePrice: 1700,
+    purchaseDate: '2023-11-10',
+  },
+  {
+    assetName: 'TCS',
+    assetDetails: { name: 'TCS', ticker: 'TCS', sector: 'Technology', cmp: 3600 },
+    quantity: 3,
+    purchasePrice: 3500,
+    purchaseDate: '2024-02-15',
+  },
+];

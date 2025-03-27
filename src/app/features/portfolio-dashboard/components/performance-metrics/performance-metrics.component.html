@@ -1,0 +1,33 @@
+<section class="widget-card">
+  <h3 class="widget-title">Performance Metrics</h3>
+
+  <div class="performance-metrics">
+    <div *ngFor="let asset of performanceMetrics" class="asset-card">
+      <div class="asset-header">
+        <span class="qty"> {{ asset.quantity }} Qty. </span>
+        <span class="avg-price"> • My Avg Price {{ asset.averagePurchasePrice | number : '1.2-2' }} </span>
+        <span class="ltp"> • LTP {{ asset.currentMarketPrice | number : '1.2-2' }} </span>
+        <span
+          class="profit-loss-percentage"
+          [ngClass]="
+            +asset.profitLossPercentage === 0 ? '' : +asset.profitLossPercentage > 0 ? 'text-green' : 'text-red'
+          "
+        >
+          {{ asset.profitLossPercentage | number : '1.2-2' }} %
+        </span>
+      </div>
+
+      <div class="asset-name">{{ asset.assetName }}</div>
+
+      <div class="asset-footer">
+        <span class="invested">Invested {{ asset.totalInvestment | number : '1.2-2' }}</span>
+        <span
+          class="current-value"
+          [ngClass]="asset.profitLossAmount === 0 ? '' : asset.profitLossAmount > 0 ? 'text-green' : 'text-red'"
+        >
+          {{ asset.profitLossAmount | number : '1.2-2' }}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

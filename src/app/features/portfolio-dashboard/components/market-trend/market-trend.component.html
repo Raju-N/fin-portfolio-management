@@ -1,0 +1,16 @@
+<!-- market-trend.component.html -->
+<div class="market-trend-widget">
+  <div class="widget-card text-center">
+    <h3 class="widget-title">Market At</h3>
+    <p class="value">{{ marketTrend.totalMarketValue | number }}</p>
+  </div>
+  <div class="widget-card text-center">
+    <h3 class="widget-title">My P&L</h3>
+    <p
+      class="value"
+      [ngClass]="marketTrend.totalProfitLoss === 0 ? '' : marketTrend.totalProfitLoss > 0 ? 'text-green' : 'text-red'"
+    >
+      ₹ {{ marketTrend.totalProfitLoss | number : '1.2-2' }}
+    </p>
+  </div>
+</div>

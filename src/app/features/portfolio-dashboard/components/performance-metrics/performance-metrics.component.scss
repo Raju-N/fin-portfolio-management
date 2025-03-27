@@ -1,0 +1,46 @@
+.performance-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .asset-card {
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .asset-header {
+      display: flex;
+      gap: 2.6rem;
+      font-size: 14px;
+      color: #666;
+      .qty {
+        min-width: 80px;
+      }
+      .avg-price {
+        min-width: 160px;
+      }
+      .profit-loss-percentage {
+        margin-left: auto;
+      }
+    }
+
+    .asset-name {
+      font-weight: bold;
+      font-size: 16px;
+      margin: 4px 0;
+    }
+
+    .asset-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #666;
+
+      .current-value {
+        font-size: 20px;
+        margin-top: -20px;
+      }
+    }
+  }
+}

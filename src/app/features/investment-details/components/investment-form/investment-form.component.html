@@ -1,0 +1,103 @@
+<div class="form-container">
+  <form [formGroup]="investmentForm" (ngSubmit)="openReviewModal(reviewTemplate)">
+    <div class="row mb-3">
+      <label class="col-sm-4 col-form-label">Asset Type</label>
+      <div class="col-sm-8">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="assetName"
+          [typeahead]="assetsList"
+          [typeaheadOptionField]="'name'"
+          (typeaheadOnSelect)="onAssetSelect($event)"
+          placeholder="Select Asset Type"
+          required
+        />
+        <div *ngIf="getFormControl('assetName').invalid && getFormControl('assetName').touched" class="text-danger">
+          <small *ngIf="getFormControl('assetName').errors?.required">Asset type is required</small>
+          <small *ngIf="getFormControl('assetName').errors?.invalidAsset"
+            >Invalid asset type! Please select from the list</small
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col-sm-4 col-form-label">Quantity</label>
+      <div class="col-sm-8">
+        <input type="number" class="form-control" formControlName="quantity" />
+        <div *ngIf="getFormControl('quantity').invalid && getFormControl('quantity').touched" class="text-danger">
+          <small>Enter a valid quantity (Min Qty: 1)</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col-sm-4 col-form-label">Purchase Price</label>
+      <div class="col-sm-8">
+        <input type="number" class="form-control" formControlName="purchasePrice" />
+        <div
+          *ngIf="getFormControl('purchasePrice').invalid && getFormControl('purchasePrice').touched"
+          class="text-danger"
+        >
+          <small>Enter a valid price (Min Price: 1)</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col-sm-4 col-form-label">Purchase Date</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" bsDatepicker formControlName="purchaseDate" />
+        <div
+          *ngIf="getFormControl('purchaseDate').invalid && getFormControl('purchaseDate').touched"
+          class="text-danger"
+        >
+          <small>Date is required</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8 offset-sm-4">
+        <button type="submit" class="btn btn-primary" [disabled]="investmentForm.invalid">Review</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- MODAL TEMPLATE FOR REVIEW -->
+<ng-template #reviewTemplate>
+  <div class="modal-content custom-modal">
+    <div class="modal-header">
+      <h5 class="modal-title">Review Your Investment Details</h5>
+      <button type="button" class="close custom-close" (click)="modalRef?.hide()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <article>
+        <div class="row mb-2">
+          <div class="col-4"><strong>Asset Type:</strong></div>
+          <div class="col-8">{{ investmentForm.value.assetName }}</div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-4"><strong>Quantity:</strong></div>
+          <div class="col-8">{{ investmentForm.value.quantity | number }}</div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-4"><strong>Purchase Price:</strong></div>
+          <div class="col-8">{{ investmentForm.value.purchasePrice | number }}</div>
+        </div>
+        <div class="row">
+          <div class="col-4"><strong>Purchase Date:</strong></div>
+          <div class="col-8">
+            {{ investmentForm.value.purchaseDate | date : 'dd/MM/yyyy' }}
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary custom-btn" (click)="modalRef?.hide()">Cancel</button>
+      <button class="btn btn-success custom-btn" (click)="onSubmitConfirmed()">Submit</button>
+    </div>
+  </div>
+</ng-template>

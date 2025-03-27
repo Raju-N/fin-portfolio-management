@@ -1,0 +1,17 @@
+<header class="header-wrapper">
+  <h1 class="title">Financial Management</h1>
+  <nav>
+    <ul class="nav-list">
+      @for (link of navLinks; track $index) {
+      <li>
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          class="nav-link"
+          >{{ link.label }}</a
+        >
+      </li>
+      }
+    </ul>
+  </nav>
+</header>

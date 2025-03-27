@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primary: #0090ba;
+  --green: #04823d;
+  --red: #cc1c27;
+  --bg-light: #f5f5fa;
+  --min-widget-height: 300px;
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: var(--bg-light);
+}
+
+p {
+  margin: 0;
+}
+
+.main-container {
+  padding: 0 20px;
+}
+
+.modal-content {
+  .custom-close {
+    background: none;
+    border: 0;
+  }
+}
+
+.text-green {
+  color: var(--green);
+}
+.text-red {
+  color: var(--red);
+}
+.text-large {
+  font-size: 2rem !important;
+}
+
+.widget-card {
+  padding: 1.5rem;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  min-height: var(--min-widget-height);
+  .widget-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+}
